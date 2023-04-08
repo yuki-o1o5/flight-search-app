@@ -3,7 +3,7 @@ import "./App.css";
 import Footer from "./views/components/Footer";
 import Header from "./views/components/Header";
 import Detail from "./views/pages/Detail";
-import HomePage from "./views/pages/Homepage";
+import HomePage from "./views/pages/HomePage";
 
 function App() {
   return (
