@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { apiAuthorize } from "../../constants/apiAuthorize";
 import AccordionCard from "../components/AccordionCard";
+import ImageTop from "../../images/Airport-amico.svg";
 
 export default function Detail() {
   // ----------------------------------------------------------------
@@ -16,7 +17,7 @@ export default function Detail() {
   // ----------------------------------------------------------------
   useEffect(() => {
     (async () => {
-      await fetchFlightData(
+      await fetchOnewayFlightData(
         originalLocationCode,
         destinationLocationCode,
         departureDate,
@@ -33,7 +34,7 @@ export default function Detail() {
   // Type
   // ----------------------------------------------------------------
 
-  type Flight = {
+  interface Flight  {
     id: number;
     itineraries: Array<object>;
     numberOfBookableSeats: number;
@@ -59,11 +60,12 @@ export default function Detail() {
   const originalLocationCode = params.get("originalLocationCode");
   const destinationLocationCode = params.get("destinationLocationCode");
   const departureDate = params.get("departureDate");
+  const returnDate = params.get("returnDate");
   const adultNumber = params.get("adultNumber");
   const childNumber = params.get("childNumber");
   const travelClass = params.get("travelClass");
 
-  const fetchFlightData = async (
+  const fetchOnewayFlightData = async (
     originalLocationCode: any,
     destinationLocationCode: any,
     departureDate: any,
@@ -89,8 +91,38 @@ export default function Detail() {
     }
   };
 
+  const fetchRoundFlightData = async (
+    originalLocationCode: any,
+    destinationLocationCode: any,
+    departureDate: any,
+    returnDate: any,
+    adultNumber: any,
+    childNumber: any,
+    travelClass: any
+  ) => {
+    try {
+      const accessToken = await apiAuthorize();
+      const res = await axios.get(
+        `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originalLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=${adultNumber}&children=${childNumber}&travelClass=${travelClass}&nonStop=false&currencyCode=USD&max=250`,
+
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      );
+      const result = res.data.data;
+      setFlightDatas(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <div>
+    <div className="mt-20">
+      <div className="flex justify-center bg-white">
+        <img src={ImageTop} alt="top" className="w-1/6 " />
+      </div>
       <div className="mt-2">
         {flightDatas.map((flightData, index) => (
           <AccordionCard key={index} information={flightData} />

@@ -5,7 +5,42 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-type AccordionCardProps = {
+// interface Segment {
+//   aircraft: {
+//     code: string;
+//   };
+//   arrival: {
+//     iataCode: string;
+//     terminal: string;
+//     at: string;
+//   };
+//   carrierCode: string;
+//   departure: {
+//     iataCode: string;
+//     terminal: string;
+//     at: string;
+//   };
+//   numberOfStops: number;
+// }
+
+// interface Itineraries {
+//   segment: Segment[];
+// }
+// interface AccordionCardProps {
+//   information: {
+//     id: number;
+//     itineraries: Itineraries[];
+//     numberOfBookableSeats: number;
+//     oneWay: boolean;
+//     price: {
+//       base: string;
+//       currency: string;
+//       grandTotal: string;
+//     };
+//     travelerPricings: Array<object>;
+//   };
+// }
+interface AccordionCardProps {
   information: {
     id: number;
     itineraries: Array<object>;
@@ -18,7 +53,7 @@ type AccordionCardProps = {
     };
     travelerPricings: Array<object>;
   };
-};
+}
 
 export default function AccordionCard({ information }: AccordionCardProps) {
   return (
