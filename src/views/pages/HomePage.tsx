@@ -107,9 +107,9 @@ export default function HomePage() {
         onSubmit={handleBringQueryToNextPage}
         className="bg-rose-900 pt-10 pb-20"
       >
-        <p className="text-center text-white mb-10 text-3xl tracking-wide font-extrabold">
+        <div className="text-center text-white mb-10 text-3xl tracking-wide font-extrabold">
           Let's search your ideal flight
-        </p>
+        </div>
         <div className="flex justify-center">
           <Paper className="bg-white">
             <TextField
