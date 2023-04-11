@@ -107,7 +107,7 @@ export default function HomePage() {
         onSubmit={handleBringQueryToNextPage}
         className="bg-rose-900 pt-10 pb-20"
       >
-        <p className="text-center text-white mb-10 text-3xl">
+        <p className="text-center text-white mb-10 text-3xl tracking-wide font-extrabold">
           Let's search your ideal flight
         </p>
         <div className="flex justify-center">
@@ -162,6 +162,7 @@ export default function HomePage() {
                     id: "adult-select-placeholder",
                   }}
                 >
+                  <MenuItem value={0}>0</MenuItem>
                   <MenuItem value={1}>1</MenuItem>
                   <MenuItem value={2}>2</MenuItem>
                   <MenuItem value={3}>3</MenuItem>
@@ -190,6 +191,7 @@ export default function HomePage() {
                     id: "child-select-placeholder",
                   }}
                 >
+                  <MenuItem value={0}>0</MenuItem>
                   <MenuItem value={1}>1</MenuItem>
                   <MenuItem value={2}>2</MenuItem>
                   <MenuItem value={3}>3</MenuItem>
@@ -232,8 +234,8 @@ export default function HomePage() {
           </button>
         </div>
       </form>
-      <p className="my-5 mx-8">Popular Travel Destitation</p>
-      <div className="my-5 mx-8 grid grid-cols-4 gap-3">
+      <div className="text-2xl my-10 mx-8 ">Popular Travel Destitation</div>
+      <div className="my-10 mx-8 grid grid-cols-4 gap-3">
         <Card className="flex">
           <CardMedia
             component="img"
