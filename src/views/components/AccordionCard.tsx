@@ -58,7 +58,7 @@ interface AccordionCardProps {
 export default function AccordionCard({ information }: AccordionCardProps) {
   return (
     <div>
-      <Accordion>
+      <Accordion className="py-3">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"

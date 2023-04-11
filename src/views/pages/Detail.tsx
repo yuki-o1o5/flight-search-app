@@ -3,7 +3,7 @@ import axios from "axios";
 import React, { useEffect } from "react";
 import { apiAuthorize } from "../../constants/apiAuthorize";
 import AccordionCard from "../components/AccordionCard";
-import ImageTop from "../../images/Airport-amico.svg";
+import ImageTop from "../../images/Flying around the world-amico.svg";
 
 export default function Detail() {
   // ----------------------------------------------------------------
@@ -34,7 +34,7 @@ export default function Detail() {
   // Type
   // ----------------------------------------------------------------
 
-  interface Flight  {
+  interface Flight {
     id: number;
     itineraries: Array<object>;
     numberOfBookableSeats: number;
@@ -45,7 +45,7 @@ export default function Detail() {
       grandTotal: string;
     };
     travelerPricings: Array<object>;
-  };
+  }
 
   // ----------------------------------------------------------------
   // function
@@ -119,15 +119,15 @@ export default function Detail() {
   };
 
   return (
-    <div className="mt-20">
-      <div className="flex justify-center bg-white">
+    <>
+      <div className="flex justify-center bg-white my-8">
         <img src={ImageTop} alt="top" className="w-1/6 " />
       </div>
-      <div className="mt-2">
+      <div className="pb-12 px-28">
         {flightDatas.map((flightData, index) => (
           <AccordionCard key={index} information={flightData} />
         ))}
       </div>
-    </div>
+    </>
   );
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import TextField from "@mui/material/TextField";
 import dayjs, { Dayjs } from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
@@ -10,8 +10,26 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Paper from "@mui/material/Paper";
 import InputLabel from "@mui/material/InputLabel";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
-import TravelDestinationCard from "../components/TravelDestinationCard";
+import Roma from "../../images/roma.jpg";
+import Paris from "../../images/paris.jpg";
+import London from "../../images/london.jpg";
+import Barcelona from "../../images/barcelona.jpg";
+import Vancouver from "../../images/vancouver.jpg";
+import Sanfrancisco from "../../images/sanfrancisco.jpg";
+import Hawaii from "../../images/hawaii.jpg";
+import Mexico from "../../images/mexico.jpg";
+import Bali from "../../images/bali.jpg";
+import Tokyo from "../../images/tokyo.jpg";
+import Taipei from "../../images/taipei.jpg";
+import Delhi from "../../images/delhi.jpg";
+
+// import TravelDestinationCard from "../components/TravelDestinationCard";
+// import { images } from "../../constants/images";
 
 export default function HomePage() {
   // ----------------------------------------------------------------
@@ -84,9 +102,15 @@ export default function HomePage() {
   };
 
   return (
-    <div className="mt-20">
-      <form onSubmit={handleBringQueryToNextPage} className="bg-rose-900">
-        <div className="flex justify-center py-8 ">
+    <>
+      <form
+        onSubmit={handleBringQueryToNextPage}
+        className="bg-rose-900 pt-10 pb-20"
+      >
+        <p className="text-center text-white mb-10 text-3xl">
+          Let's search your ideal flight
+        </p>
+        <div className="flex justify-center">
           <Paper className="bg-white">
             <TextField
               placeholder="Original Location"
@@ -202,11 +226,183 @@ export default function HomePage() {
             </Box>
           </Paper>
         </div>
-        <button className="bg-sky-500 hover:bg-sky-700 px-6 py-2 rounded-md text-white">
-          Search
-        </button>
+        <div className="flex justify-center  ">
+          <button className="bg-sky-500 hover:bg-sky-700 px-6 py-2 rounded-md text-white">
+            Search
+          </button>
+        </div>
       </form>
-      {/* <TravelDestinationCard /> */}
-    </div>
+      <p className="my-5 mx-8">Popular Travel Destitation</p>
+      <div className="my-5 mx-8 grid grid-cols-4 gap-3">
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Roma}
+            alt="Roma"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Roma</Typography>
+              <Typography>IATA code: FCO</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Paris}
+            alt="Paris"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Paris</Typography>
+              <Typography>IATA code: CDG</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={London}
+            alt="London"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>London</Typography>
+              <Typography>IATA code: LHR</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Barcelona}
+            alt="Barcelona"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Barcelona</Typography>
+              <Typography>IATA code: BCN</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Vancouver}
+            alt="Vancouver"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Vancouver</Typography>
+              <Typography>IATA code: YVR</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Sanfrancisco}
+            alt="San Francisco"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>San Francisco</Typography>
+              <Typography>IATA code: SFO</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Hawaii}
+            alt="Hawaii"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Hawaii</Typography>
+              <Typography>IATA code: HNL</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Mexico}
+            alt="Mexico"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Mexico</Typography>
+              <Typography>IATA code: MEX</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Bali}
+            alt="Bali"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Bali</Typography>
+              <Typography>IATA code: DPS</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Tokyo}
+            alt="Tokyo"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Tokyo</Typography>
+              <Typography>IATA code: NRT</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Taipei}
+            alt="Taipei"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Taipei</Typography>
+              <Typography>IATA code: TPE</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+        <Card className="flex">
+          <CardMedia
+            component="img"
+            sx={{ width: 120 }}
+            image={Delhi}
+            alt="Dehli"
+          />
+          <Box className="flex flex-col">
+            <CardContent>
+              <Typography>Dehli</Typography>
+              <Typography>IATA code: DEL</Typography>
+            </CardContent>
+          </Box>
+        </Card>
+      </div>
+    </>
   );
 }
