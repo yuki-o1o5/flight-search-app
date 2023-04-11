@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import { apiAuthorize } from "../../constants/apiAuthorize";
 import AccordionCard from "../components/AccordionCard";
 import ImageTop from "../../images/Flying around the world-amico.svg";
+import SearchBar from "../components/SearchBar";
 
 export default function Detail() {
   // ----------------------------------------------------------------
@@ -26,24 +27,11 @@ export default function Detail() {
     })();
   }, []);
 
-  console.log(flightDatas);
+  console.log("hello", flightDatas);
 
   // ----------------------------------------------------------------
   // Type
   // ----------------------------------------------------------------
-  // interface Flight {
-  //   id: number;
-  //   itineraries: Array<object>;
-  //   numberOfBookableSeats: number;
-  //   oneWay: boolean;
-  //   price: {
-  //     base: string;
-  //     currency: string;
-  //     grandTotal: string;
-  //   };
-  //   travelerPricings: Array<object>;
-  // }
-
   interface Segment {
     aircraft: {
       code: string;
@@ -152,6 +140,14 @@ export default function Detail() {
 
   return (
     <>
+      <SearchBar
+        preOriginalLocationCode={originalLocationCode}
+        preDestinationLocationCode={destinationLocationCode}
+        preDepartureDate={departureDate}
+        preAdultNumber={adultNumber}
+        preChildNumber={childNumber}
+        preTravelClass={travelClass}
+      />
       <div className="flex justify-center bg-white my-8">
         <img src={ImageTop} alt="top" className="w-1/6 " />
       </div>
