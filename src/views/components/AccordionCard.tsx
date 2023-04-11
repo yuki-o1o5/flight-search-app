@@ -1,9 +1,10 @@
-import React from "react";
 import Accordion from "@mui/material/Accordion";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
+import FlightDirectionCountryCard from "./FightDirectionCountryCard";
+import FlightDirectionTimeCard from "./FightDirectionTimeCard";
 
 interface Segment {
   aircraft: {
@@ -26,20 +27,7 @@ interface Segment {
 interface Itineraries {
   segments: Segment[];
 }
-// interface AccordionCardProps {
-//   information: {
-//     id: number;
-//     itineraries: Itineraries[];
-//     numberOfBookableSeats: number;
-//     oneWay: boolean;
-//     price: {
-//       base: string;
-//       currency: string;
-//       grandTotal: string;
-//     };
-//     travelerPricings: Array<object>;
-//   };
-// }
+
 interface AccordionCardProps {
   information: {
     id: number;
@@ -64,19 +52,19 @@ export default function AccordionCard({ information }: AccordionCardProps) {
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: "45%", flexShrink: 0 }}>
+          <div className="w-2/5">
             <div className="flex justify-center gap-20 text-xl">
               <div>
                 {information.itineraries[0].segments[0].departure.iataCode}
               </div>
+              <HorizontalRuleIcon />
               <div>
                 {information.itineraries[0].segments[
                   information.itineraries[0].segments.length - 1
                 ].arrival.iataCode + " "}
               </div>
             </div>
-
-            <div className="flex justify-center gap-20">
+            <div className="flex justify-center gap-20 text-gray-500">
               <div>{information.itineraries[0].segments[0].departure.at}</div>
               <div>
                 {
@@ -86,31 +74,45 @@ export default function AccordionCard({ information }: AccordionCardProps) {
                 }
               </div>
             </div>
-          </Typography>
-          <Typography
-            sx={{ width: "25%", flexShrink: 0 }}
-            className="flex justify-center"
-          >
+          </div>
+          <div className="flex justify-center w-1/4">
             <div className="text-xl">
               {information.itineraries[0].segments.length - 1 === 0
                 ? "Nonstop"
                 : information.itineraries[0].segments.length - 1 + " Step"}
             </div>
-          </Typography>
-          <Typography
-            sx={{ width: "30%", flexShrink: 0 }}
-            className="flex justify-center"
-          >
+          </div>
+          <div className="flex justify-center w-1/4">
             <div className="text-xl">
               {information.price.grandTotal} {information.price.currency}
             </div>
-          </Typography>
+          </div>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
-            Nulla facilisi. Phasellus sollicitudin nulla et quam mattis feugiat.
-            Aliquam eget maximus est, id dignissim quam.
-          </Typography>
+          <div className="flex">
+            <div>
+              {information.itineraries[0].segments.map((eachFlight, index) => {
+                return (
+                  <FlightDirectionCountryCard
+                    key={index}
+                    arrival={eachFlight.arrival.iataCode}
+                    departure={eachFlight.departure.iataCode}
+                  />
+                );
+              })}
+            </div>
+            <div className="pl-5">
+              {information.itineraries[0].segments.map((eachFlight, index) => {
+                return (
+                  <FlightDirectionTimeCard
+                    key={index}
+                    arrivalTime={eachFlight.arrival.at}
+                    departureTime={eachFlight.departure.at}
+                  />
+                );
+              })}
+            </div>
+          </div>
         </AccordionDetails>
       </Accordion>
     </div>
