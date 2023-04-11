@@ -9,9 +9,7 @@ export default function Detail() {
   // ----------------------------------------------------------------
   // useState
   // ----------------------------------------------------------------
-
   const [flightDatas, setFlightDatas] = React.useState<Flight[]>([]);
-
   // ----------------------------------------------------------------
   // useEffect
   // ----------------------------------------------------------------
@@ -33,18 +31,67 @@ export default function Detail() {
   // ----------------------------------------------------------------
   // Type
   // ----------------------------------------------------------------
+  // interface Flight {
+  //   id: number;
+  //   itineraries: Array<object>;
+  //   numberOfBookableSeats: number;
+  //   oneWay: boolean;
+  //   price: {
+  //     base: string;
+  //     currency: string;
+  //     grandTotal: string;
+  //   };
+  //   travelerPricings: Array<object>;
+  // }
 
-  interface Flight {
-    id: number;
-    itineraries: Array<object>;
-    numberOfBookableSeats: number;
-    oneWay: boolean;
-    price: {
-      base: string;
-      currency: string;
-      grandTotal: string;
+  interface Segment {
+    aircraft: {
+      code: string;
     };
-    travelerPricings: Array<object>;
+    arrival: {
+      iataCode: string;
+      terminal: string;
+      at: string;
+    };
+    carrierCode: string;
+    departure: {
+      iataCode: string;
+      terminal: string;
+      at: string;
+    };
+    numberOfStops: number;
+  }
+
+  interface Itineraries {
+    segments: Segment[];
+  }
+  // interface AccordionCardProps {
+  //   information: {
+  //     id: number;
+  //     itineraries: Itineraries[];
+  //     numberOfBookableSeats: number;
+  //     oneWay: boolean;
+  //     price: {
+  //       base: string;
+  //       currency: string;
+  //       grandTotal: string;
+  //     };
+  //     travelerPricings: Array<object>;
+  //   };
+  // }
+  interface Flight {
+    information: {
+      id: number;
+      itineraries: Itineraries[];
+      numberOfBookableSeats: number;
+      oneWay: boolean;
+      price: {
+        base: string;
+        currency: string;
+        grandTotal: string;
+      };
+      travelerPricings: Array<object>;
+    };
   }
 
   // ----------------------------------------------------------------
@@ -60,7 +107,7 @@ export default function Detail() {
   const originalLocationCode = params.get("originalLocationCode");
   const destinationLocationCode = params.get("destinationLocationCode");
   const departureDate = params.get("departureDate");
-  const returnDate = params.get("returnDate");
+  // const returnDate = params.get("returnDate");
   const adultNumber = params.get("adultNumber");
   const childNumber = params.get("childNumber");
   const travelClass = params.get("travelClass");
@@ -91,32 +138,32 @@ export default function Detail() {
     }
   };
 
-  const fetchRoundFlightData = async (
-    originalLocationCode: any,
-    destinationLocationCode: any,
-    departureDate: any,
-    returnDate: any,
-    adultNumber: any,
-    childNumber: any,
-    travelClass: any
-  ) => {
-    try {
-      const accessToken = await apiAuthorize();
-      const res = await axios.get(
-        `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originalLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=${adultNumber}&children=${childNumber}&travelClass=${travelClass}&nonStop=false&currencyCode=USD&max=250`,
+  // const fetchRoundFlightData = async (
+  //   originalLocationCode: any,
+  //   destinationLocationCode: any,
+  //   departureDate: any,
+  //   returnDate: any,
+  //   adultNumber: any,
+  //   childNumber: any,
+  //   travelClass: any
+  // ) => {
+  //   try {
+  //     const accessToken = await apiAuthorize();
+  //     const res = await axios.get(
+  //       `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originalLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&returnDate=${returnDate}&adults=${adultNumber}&children=${childNumber}&travelClass=${travelClass}&nonStop=false&currencyCode=USD&max=250`,
 
-        {
-          headers: {
-            Authorization: `Bearer ${accessToken}`,
-          },
-        }
-      );
-      const result = res.data.data;
-      setFlightDatas(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //       {
+  //         headers: {
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       }
+  //     );
+  //     const result = res.data.data;
+  //     setFlightDatas(result);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <>

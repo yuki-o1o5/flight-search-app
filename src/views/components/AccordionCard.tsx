@@ -5,27 +5,27 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-// interface Segment {
-//   aircraft: {
-//     code: string;
-//   };
-//   arrival: {
-//     iataCode: string;
-//     terminal: string;
-//     at: string;
-//   };
-//   carrierCode: string;
-//   departure: {
-//     iataCode: string;
-//     terminal: string;
-//     at: string;
-//   };
-//   numberOfStops: number;
-// }
+interface Segment {
+  aircraft: {
+    code: string;
+  };
+  arrival: {
+    iataCode: string;
+    terminal: string;
+    at: string;
+  };
+  carrierCode: string;
+  departure: {
+    iataCode: string;
+    terminal: string;
+    at: string;
+  };
+  numberOfStops: number;
+}
 
-// interface Itineraries {
-//   segment: Segment[];
-// }
+interface Itineraries {
+  segments: Segment[];
+}
 // interface AccordionCardProps {
 //   information: {
 //     id: number;
@@ -43,7 +43,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 interface AccordionCardProps {
   information: {
     id: number;
-    itineraries: Array<object>;
+    itineraries: Itineraries[];
     numberOfBookableSeats: number;
     oneWay: boolean;
     price: {
