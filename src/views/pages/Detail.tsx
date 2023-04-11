@@ -65,33 +65,18 @@ export default function Detail() {
   interface Itineraries {
     segments: Segment[];
   }
-  // interface AccordionCardProps {
-  //   information: {
-  //     id: number;
-  //     itineraries: Itineraries[];
-  //     numberOfBookableSeats: number;
-  //     oneWay: boolean;
-  //     price: {
-  //       base: string;
-  //       currency: string;
-  //       grandTotal: string;
-  //     };
-  //     travelerPricings: Array<object>;
-  //   };
-  // }
+
   interface Flight {
-    information: {
-      id: number;
-      itineraries: Itineraries[];
-      numberOfBookableSeats: number;
-      oneWay: boolean;
-      price: {
-        base: string;
-        currency: string;
-        grandTotal: string;
-      };
-      travelerPricings: Array<object>;
+    id: number;
+    itineraries: Itineraries[];
+    numberOfBookableSeats: number;
+    oneWay: boolean;
+    price: {
+      base: string;
+      currency: string;
+      grandTotal: string;
     };
+    travelerPricings: Array<object>;
   }
 
   // ----------------------------------------------------------------

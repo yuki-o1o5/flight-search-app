@@ -58,20 +58,52 @@ interface AccordionCardProps {
 export default function AccordionCard({ information }: AccordionCardProps) {
   return (
     <div>
-      <Accordion className="py-3">
+      <Accordion className="py-3 px-10">
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1bh-content"
           id="panel1bh-header"
         >
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
-            {information.numberOfBookableSeats}
+          <Typography sx={{ width: "45%", flexShrink: 0 }}>
+            <div className="flex justify-center gap-20 text-xl">
+              <div>
+                {information.itineraries[0].segments[0].departure.iataCode}
+              </div>
+              <div>
+                {information.itineraries[0].segments[
+                  information.itineraries[0].segments.length - 1
+                ].arrival.iataCode + " "}
+              </div>
+            </div>
+
+            <div className="flex justify-center gap-20">
+              <div>{information.itineraries[0].segments[0].departure.at}</div>
+              <div>
+                {
+                  information.itineraries[0].segments[
+                    information.itineraries[0].segments.length - 1
+                  ].arrival.at
+                }
+              </div>
+            </div>
           </Typography>
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
-            {information.price.grandTotal} {information.price.currency}
+          <Typography
+            sx={{ width: "25%", flexShrink: 0 }}
+            className="flex justify-center"
+          >
+            <div className="text-xl">
+              {information.itineraries[0].segments.length - 1 === 0
+                ? "Nonstop"
+                : information.itineraries[0].segments.length - 1 + " Step"}
+            </div>
           </Typography>
-          <Typography sx={{ width: "33%", flexShrink: 0 }}>
-            I am an accordion
+          <Typography
+            sx={{ width: "30%", flexShrink: 0 }}
+            className="flex justify-center"
+          >
+            <div className="text-xl">
+              {information.price.grandTotal} {information.price.currency}
+            </div>
           </Typography>
         </AccordionSummary>
         <AccordionDetails>
