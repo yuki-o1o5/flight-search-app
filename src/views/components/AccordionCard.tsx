@@ -3,8 +3,12 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import HorizontalRuleIcon from "@mui/icons-material/HorizontalRule";
-import FlightDirectionCountryCard from "./FightDirectionCountryCard";
-import FlightDirectionTimeCard from "./FightDirectionTimeCard";
+import FlightDirectionCountryCard from "./FlightDirectionCountryCard";
+import FlightDirectionTimeCard from "./FlightDirectionTimeCard";
+import WifiIcon from "@mui/icons-material/Wifi";
+import PowerIcon from "@mui/icons-material/Power";
+import Co2Icon from "@mui/icons-material/Co2";
+import OndemandVideoIcon from "@mui/icons-material/OndemandVideo";
 
 interface Segment {
   aircraft: {
@@ -65,13 +69,25 @@ export default function AccordionCard({ information }: AccordionCardProps) {
               </div>
             </div>
             <div className="flex justify-center gap-20 text-gray-500">
-              <div>{information.itineraries[0].segments[0].departure.at}</div>
               <div>
-                {
-                  information.itineraries[0].segments[
-                    information.itineraries[0].segments.length - 1
-                  ].arrival.at
-                }
+                {information.itineraries[0].segments[0].departure.at.substring(
+                  0,
+                  10
+                )}
+                {"  "}
+                {information.itineraries[0].segments[0].departure.at.substring(
+                  11,
+                  16
+                )}
+              </div>
+              <div>
+                {information.itineraries[0].segments[
+                  information.itineraries[0].segments.length - 1
+                ].arrival.at.substring(0, 10)}{" "}
+                {"  "}
+                {information.itineraries[0].segments[
+                  information.itineraries[0].segments.length - 1
+                ].arrival.at.substring(11, 16)}
               </div>
             </div>
           </div>
@@ -89,28 +105,54 @@ export default function AccordionCard({ information }: AccordionCardProps) {
           </div>
         </AccordionSummary>
         <AccordionDetails>
-          <div className="flex">
-            <div>
-              {information.itineraries[0].segments.map((eachFlight, index) => {
-                return (
-                  <FlightDirectionCountryCard
-                    key={index}
-                    arrival={eachFlight.arrival.iataCode}
-                    departure={eachFlight.departure.iataCode}
-                  />
-                );
-              })}
+          <div className="flex justify-between">
+            <div className="flex pl-20">
+              <div>
+                {information.itineraries[0].segments.map(
+                  (eachFlight, index) => {
+                    return (
+                      <FlightDirectionCountryCard
+                        key={index}
+                        arrival={eachFlight.arrival.iataCode}
+                        departure={eachFlight.departure.iataCode}
+                      />
+                    );
+                  }
+                )}
+              </div>
+              <div className="pl-5">
+                {information.itineraries[0].segments.map(
+                  (eachFlight, index) => {
+                    return (
+                      <FlightDirectionTimeCard
+                        key={index}
+                        arrivalTime={eachFlight.arrival.at}
+                        departureTime={eachFlight.departure.at}
+                      />
+                    );
+                  }
+                )}
+              </div>
             </div>
-            <div className="pl-5">
-              {information.itineraries[0].segments.map((eachFlight, index) => {
-                return (
-                  <FlightDirectionTimeCard
-                    key={index}
-                    arrivalTime={eachFlight.arrival.at}
-                    departureTime={eachFlight.departure.at}
-                  />
-                );
-              })}
+            <div>
+              <div className="flex flex-col gap-2 text-gray-500">
+                <div className="flex">
+                  <WifiIcon />
+                  <div className="pl-2">Wi-Fi for a free</div>
+                </div>
+                <div className="flex">
+                  <PowerIcon />
+                  <div className="pl-2">In-seat power & USB outlets</div>
+                </div>
+                <div className="flex">
+                  <Co2Icon />
+                  <div className="pl-2">Less carbon emissions</div>
+                </div>
+                <div className="flex">
+                  <OndemandVideoIcon />
+                  <div className="pl-2">On-demand video</div>
+                </div>
+              </div>
             </div>
           </div>
         </AccordionDetails>

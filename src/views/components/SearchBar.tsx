@@ -134,14 +134,14 @@ export default function SearchBar({
               />
             </LocalizationProvider>
           </Paper>
-          <Paper className="bg-white">
+          {/* <Paper className="bg-white">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 value={returnDate}
                 onChange={(newValue) => setReturnDate(newValue)}
               />
             </LocalizationProvider>
-          </Paper>
+          </Paper> */}
         </div>
         <div className="flex justify-center my-5">
           <Paper className="bg-white">

@@ -102,7 +102,7 @@ export default function HomePage() {
   };
 
   return (
-    <>
+    <div className="h-3/5 overflow-auto">
       <form
         onSubmit={handleBringQueryToNextPage}
         className="bg-rose-900 pt-10 pb-20"
@@ -137,14 +137,14 @@ export default function HomePage() {
               />
             </LocalizationProvider>
           </Paper>
-          <Paper className="bg-white">
+          {/* <Paper className="bg-white">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 value={returnDate}
                 onChange={(newValue) => setReturnDate(newValue)}
               />
             </LocalizationProvider>
-          </Paper>
+          </Paper> */}
         </div>
         <div className="flex justify-center my-5">
           <Paper className="bg-white">
@@ -235,7 +235,7 @@ export default function HomePage() {
         </div>
       </form>
       <div className="text-2xl my-10 mx-8 ">Popular Travel Destitation</div>
-      <div className="my-10 mx-8 grid grid-cols-4 gap-3">
+      <div className="mt-10 mb-20 mx-8 grid grid-cols-4 gap-3 ">
         <Card className="flex">
           <CardMedia
             component="img"
@@ -246,7 +246,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Roma</Typography>
-              <Typography>IATA code: FCO</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: FCO</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -260,7 +260,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Paris</Typography>
-              <Typography>IATA code: CDG</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: CDG</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -274,7 +274,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>London</Typography>
-              <Typography>IATA code: LHR</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: LHR</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -288,7 +288,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Barcelona</Typography>
-              <Typography>IATA code: BCN</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: BCN</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -302,7 +302,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Vancouver</Typography>
-              <Typography>IATA code: YVR</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: YVR</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -316,7 +316,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>San Francisco</Typography>
-              <Typography>IATA code: SFO</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: SFO</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -330,7 +330,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Hawaii</Typography>
-              <Typography>IATA code: HNL</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: HNL</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -344,7 +344,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Mexico</Typography>
-              <Typography>IATA code: MEX</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: MEX</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -358,7 +358,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Bali</Typography>
-              <Typography>IATA code: DPS</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: DPS</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -372,7 +372,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Tokyo</Typography>
-              <Typography>IATA code: NRT</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: NRT</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -386,7 +386,7 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Taipei</Typography>
-              <Typography>IATA code: TPE</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: TPE</Typography>
             </CardContent>
           </Box>
         </Card>
@@ -400,11 +400,11 @@ export default function HomePage() {
           <Box className="flex flex-col">
             <CardContent>
               <Typography>Dehli</Typography>
-              <Typography>IATA code: DEL</Typography>
+              <Typography style={{ color: "grey" }}>IATA Code: DEL</Typography>
             </CardContent>
           </Box>
         </Card>
       </div>
-    </>
+    </div>
   );
 }

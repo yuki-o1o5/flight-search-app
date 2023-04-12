@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <>
-      <nav className="bg-rose-900 px-2 sm:px-4 py-5 dark:bg-gray-900  w-full z-20 top-0 left-0 ">
+      <nav className="bg-rose-900 px-2 sm:px-4 py-5 dark:bg-gray-900  w-full z-20 top-0 left-0 h-1/5">
         <Link to="/" className="flex items-center">
           <img src={Logo} className="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white text-white">

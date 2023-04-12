@@ -1,6 +1,7 @@
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import React, { useEffect } from "react";
+import StarIcon from "@mui/icons-material/Star";
 import { apiAuthorize } from "../../constants/apiAuthorize";
 import AccordionCard from "../components/AccordionCard";
 import ImageTop from "../../images/Flying around the world-amico.svg";
@@ -27,7 +28,7 @@ export default function Detail() {
     })();
   }, []);
 
-  console.log("hello", flightDatas);
+  console.log("flightDatas", flightDatas);
 
   // ----------------------------------------------------------------
   // Type
@@ -96,7 +97,7 @@ export default function Detail() {
     try {
       const accessToken = await apiAuthorize();
       const res = await axios.get(
-        `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originalLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&adults=${adultNumber}&children=${childNumber}&travelClass=${travelClass}&nonStop=false&currencyCode=USD&max=250`,
+        `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${originalLocationCode}&destinationLocationCode=${destinationLocationCode}&departureDate=${departureDate}&adults=${adultNumber}&children=${childNumber}&travelClass=${travelClass}&nonStop=false&currencyCode=CAD&max=20`,
 
         {
           headers: {
@@ -139,23 +140,27 @@ export default function Detail() {
   // };
 
   return (
-    <>
-      <SearchBar
+    <div className="min-h-screen overflow-auto">
+      {/* <SearchBar
         preOriginalLocationCode={originalLocationCode}
         preDestinationLocationCode={destinationLocationCode}
         preDepartureDate={departureDate}
         preAdultNumber={adultNumber}
         preChildNumber={childNumber}
         preTravelClass={travelClass}
-      />
-      <div className="flex justify-center bg-white my-8">
+      /> */}
+      <div className="flex justify-center my-8">
         <img src={ImageTop} alt="top" className="w-1/6 " />
+      </div>
+      <div className="flex pb-12 px-28 text-2xl items-center gap-2">
+        <StarIcon />
+        <div>Best flights</div>
       </div>
       <div className="pb-12 px-28">
         {flightDatas.map((flightData, index) => (
           <AccordionCard key={index} information={flightData} />
         ))}
       </div>
-    </>
+    </div>
   );
 }
