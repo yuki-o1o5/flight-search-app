@@ -154,7 +154,7 @@ export default function Detail() {
       </div>
       <div className="flex pb-12 px-28 text-2xl items-center gap-2">
         <StarIcon />
-        <div>Best flights</div>
+        <div>20 Best flights</div>
       </div>
       <div className="pb-12 px-28">
         {flightDatas.map((flightData, index) => (

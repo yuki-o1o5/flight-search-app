@@ -234,8 +234,10 @@ export default function HomePage() {
           </button>
         </div>
       </form>
-      <div className="text-2xl my-10 mx-8 ">Popular Travel Destitation</div>
-      <div className="mt-10 mb-20 mx-8 grid grid-cols-4 gap-3 ">
+      <div className="text-2xl my-10 mx-20 px-10">
+        Popular Travel Destitation
+      </div>
+      <div className="mt-10 mb-20 mx-20 px-10 grid grid-cols-4 gap-3 ">
         <Card className="flex">
           <CardMedia
             component="img"
@@ -245,7 +247,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Roma</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Roma</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: FCO</Typography>
             </CardContent>
           </Box>
@@ -259,7 +261,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Paris</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Paris</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: CDG</Typography>
             </CardContent>
           </Box>
@@ -273,7 +275,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>London</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>London</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: LHR</Typography>
             </CardContent>
           </Box>
@@ -287,7 +289,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Barcelona</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Barcelona</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: BCN</Typography>
             </CardContent>
           </Box>
@@ -301,7 +303,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Vancouver</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Vancouver</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: YVR</Typography>
             </CardContent>
           </Box>
@@ -315,7 +317,9 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>San Francisco</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>
+                San Francisco
+              </Typography>
               <Typography style={{ color: "grey" }}>IATA Code: SFO</Typography>
             </CardContent>
           </Box>
@@ -329,7 +333,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Hawaii</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Hawaii</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: HNL</Typography>
             </CardContent>
           </Box>
@@ -343,7 +347,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Mexico</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Mexico</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: MEX</Typography>
             </CardContent>
           </Box>
@@ -357,7 +361,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Bali</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Bali</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: DPS</Typography>
             </CardContent>
           </Box>
@@ -371,7 +375,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Tokyo</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Tokyo</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: NRT</Typography>
             </CardContent>
           </Box>
@@ -385,7 +389,7 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Taipei</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Taipei</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: TPE</Typography>
             </CardContent>
           </Box>
@@ -399,11 +403,19 @@ export default function HomePage() {
           />
           <Box className="flex flex-col">
             <CardContent>
-              <Typography>Dehli</Typography>
+              <Typography style={{ fontSize: "1.2rem" }}>Dehli</Typography>
               <Typography style={{ color: "grey" }}>IATA Code: DEL</Typography>
             </CardContent>
           </Box>
         </Card>
+      </div>
+      <div className="text-2xl my-10 mx-20 px-10">
+        What is the ideal Flight?
+      </div>
+      <div className="mt-10 mb-20 mx-20 px-10 ">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
   );
