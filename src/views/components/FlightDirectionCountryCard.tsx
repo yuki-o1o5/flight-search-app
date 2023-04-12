@@ -15,13 +15,13 @@ export default function FightDirectionCountryCard({
   return (
     <div className="flex flex-col gap-3 pb-2">
       <div className="flex items-center gap-2">
-        <PanoramaFishEyeIcon />
+        <PanoramaFishEyeIcon style={{ color: "grey" }} />
         <div>{departure}</div>
       </div>
-      <MoreVertIcon />
+      <MoreVertIcon style={{ color: "grey" }} />
 
       <div className="flex items-center gap-2">
-        <PanoramaFishEyeIcon />
+        <PanoramaFishEyeIcon style={{ color: "grey" }} />
         <div>{arrival}</div>
       </div>
     </div>

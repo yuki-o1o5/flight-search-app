@@ -11,9 +11,14 @@ export default function FightDirectionTimeCard({
 }: FightDirectionTimeCardProps) {
   return (
     <div className="flex flex-col gap-3 pb-2">
-      <div>{departureTime}</div>
-      <MoreVertIcon />
-      <div>{arrivalTime}</div>
+      <div>
+        {departureTime.substring(0, 10)} {"  "}
+        {departureTime.substring(11, 16)}
+      </div>
+      <MoreVertIcon style={{ visibility: "hidden" }} />
+      <div>
+        {arrivalTime.substring(0, 10)} {"  "} {arrivalTime.substring(11, 16)}
+      </div>
     </div>
   );
 }
