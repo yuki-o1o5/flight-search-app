@@ -111,7 +111,7 @@ export default function Header() {
           Let's search your ideal flight
         </div>
         <div className="flex justify-center">
-          <FormControlLabel
+          {/* <FormControlLabel
             label="direct"
             control={
               <Checkbox
@@ -120,7 +120,7 @@ export default function Header() {
               />
             }
             className="text-white "
-          />
+          /> */}
           <Paper className="bg-white">
             <TextField
               placeholder="Original Location"
@@ -147,14 +147,14 @@ export default function Header() {
               />
             </LocalizationProvider>
           </Paper>
-          <Paper className="bg-white">
+          {/* <Paper className="bg-white">
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 value={returnDate}
                 onChange={(newValue) => setReturnDate(newValue)}
               />
             </LocalizationProvider>
-          </Paper>
+          </Paper> */}
         </div>
         <div className="flex justify-center my-5">
           <Paper className="bg-white">
