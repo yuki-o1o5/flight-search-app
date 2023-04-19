@@ -12,12 +12,12 @@ export default function FightDirectionTimeCard({
   return (
     <div className="flex flex-col gap-3 pb-2">
       <div>
-        {departureTime.substring(0, 10)} {"  "}
+        {departureTime.substring(5, 10)} {"  "}
         {departureTime.substring(11, 16)}
       </div>
       <MoreVertIcon style={{ visibility: "hidden" }} />
       <div>
-        {arrivalTime.substring(0, 10)} {"  "} {arrivalTime.substring(11, 16)}
+        {arrivalTime.substring(5, 10)} {"  "} {arrivalTime.substring(11, 16)}
       </div>
     </div>
   );

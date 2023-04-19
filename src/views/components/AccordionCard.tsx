@@ -71,7 +71,7 @@ export default function AccordionCard({ information }: AccordionCardProps) {
             <div className="flex justify-center gap-20 text-gray-500">
               <div>
                 {information.itineraries[0].segments[0].departure.at.substring(
-                  0,
+                  5,
                   10
                 )}
                 {"  "}
@@ -83,7 +83,7 @@ export default function AccordionCard({ information }: AccordionCardProps) {
               <div>
                 {information.itineraries[0].segments[
                   information.itineraries[0].segments.length - 1
-                ].arrival.at.substring(0, 10)}{" "}
+                ].arrival.at.substring(5, 10)}{" "}
                 {"  "}
                 {information.itineraries[0].segments[
                   information.itineraries[0].segments.length - 1
